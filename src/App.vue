@@ -1,16 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Counter</h1>
+  <!-- <h3>{{ $store.state.counter }}</h3> -->
+  <the-counter></the-counter>
+  <favorite-value></favorite-value>
+  <button @click="addOne">Add 10</button>
+  <change-counter></change-counter>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChangeCounter from './components/ChangeCounter.vue';
+import TheCounter from './components/TheCounter.vue';
+import FavoriteValue from './components/FavoriteValue.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components:{
+        ChangeCounter,
+    TheCounter,
+    FavoriteValue
+    },
+  methods:{
+    addOne(){
+      this.$store.commit('increase',{value:10});
+    }
   }
+  
 }
 </script>
 
@@ -24,3 +37,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
